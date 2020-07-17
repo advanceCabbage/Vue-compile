@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--插值绑定-->
+        <p>{{name}}</p>
+        <!--指令-->
+        <p k-text="name"></p>
+        <p>{{age}}</p>
+        <p>
+            {{doubleAge}}
+        </p>
+        <!--双向绑定-->
+        <input type="text" k-model="name">
+        <!--事件-->
+        <button @click="changeName">学习编译</button>
+        <!--html-->
+        <div k-html="html"></div>
+    </div>
+    <script src='./compile.js'></script>
+    <script src='./k-vue.js'></script>
+    <script>
+        let helloVue = new KVue({
+            el: '#app',
+            data: {
+                name: "I am test.",
+                age: '本测试项目编写与2020/07/17',
+                html: '<button>这是一个按钮</button>'
+            },
+            created() {
+                console.log('开始啦')
+                setTimeout(() => {
+                    this.name = '我是created执行之后的name'
+                }, 1500)
+            },
+            methods: {
+                changeName() {
+                    this.name = '我是changeName方法执行之后的name'
+                    this.age = 1
+                    this.id = 'xx'
+                    console.log(1, this)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

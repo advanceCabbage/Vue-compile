@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./Vue依赖收集.js"></script>
+    <script>
+        const options = {
+            data:{
+                name:'张三',
+                list:{
+                    age:'20'
+                }
+            }
+        }
+        let obj = new Kvue(options);
+        //通过对name 和 age 重新赋值 监测依赖收集是否生效
+        obj.$data.name = '张思'
+        obj.$data.list.age = '30'
+    </script>
+</body>
+</html>

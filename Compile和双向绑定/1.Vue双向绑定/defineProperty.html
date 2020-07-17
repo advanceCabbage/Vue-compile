@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nametext"></div>
+</body>
+<script type="text/javascript">
+    let obj = {}
+    /**
+     *  vue利用Object.defineProperty属性,对data里面的每一个数据使用Object.defineProperty,
+     * 为每一个数据添加了get和set属性,使得能监听到每个数据的变化,能对变化的数据实行更新
+    */
+   /*
+    * Object.defineProperty(obj,prop,descriptor)
+    * 接收三个参数obj: 可以理解为目标对象。
+    * prop: 目标对象的属性名。
+    * descriptor: 对属性的描述。
+    */
+    Object.defineProperty(obj,'name',{
+        get(){
+            return document.getElementById("nametext").innerHTML    
+        },
+        set(val){
+            document.getElementById("nametext").innerHTML  = val
+        }
+    })
+    obj.name = 'vue数据劫持'
+</script>
+</html>
